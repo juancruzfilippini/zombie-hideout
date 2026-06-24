@@ -3,6 +3,8 @@ import "server-only";
 import { serverConfig } from "@/content/site";
 import type { ServerStatusResponse } from "@/lib/server-query/types";
 
+type ServerStatusMode = "auto" | "live" | "mock";
+
 type GameDigState = {
   name?: string;
   map?: string;
@@ -29,22 +31,33 @@ type GameDigModule = {
   };
 };
 
-export function getMockServerStatus(): ServerStatusResponse {
+function getStatusMode(): ServerStatusMode {
+  const mode = process.env.SERVER_STATUS_MODE;
+  if (mode === "auto" || mode === "live" || mode === "mock") return mode;
+  return "auto";
+}
+
+export function getConfiguredOfflineStatus(source: "configured" | "mock" = "configured"): ServerStatusResponse {
   return {
     serverName: serverConfig.name,
     address: serverConfig.address,
-    state: "online",
-    players: { current: 12, max: 64 },
-    map: "zm_hideout_industrial",
-    version: "CSS Zombie Mod",
-    ping: 38,
+    state: "offline",
+    players: { current: 0, max: 0 },
+    map: null,
+    version: serverConfig.game,
+    ping: null,
     checkedAt: new Date().toISOString(),
-    source: "mock",
+    source,
+    message: "server_offline",
   };
 }
 
+export function getMockServerStatus(): ServerStatusResponse {
+  return getConfiguredOfflineStatus("mock");
+}
+
 export async function queryServerStatus(): Promise<ServerStatusResponse> {
-  const mode = process.env.SERVER_STATUS_MODE ?? "mock";
+  const mode = getStatusMode();
   if (mode === "mock") {
     return getMockServerStatus();
   }
@@ -85,7 +98,7 @@ export async function queryServerStatus(): Promise<ServerStatusResponse> {
     });
 
     if (mode === "auto") {
-      return getMockServerStatus();
+      return getConfiguredOfflineStatus();
     }
 
     return {

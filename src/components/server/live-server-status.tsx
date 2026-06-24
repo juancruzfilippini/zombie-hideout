@@ -59,6 +59,8 @@ export function LiveServerStatus({ dict }: { dict: Dictionary }) {
     hour: "2-digit",
     minute: "2-digit",
   }).format(new Date(status.checkedAt));
+  const sourceLabel =
+    status.source === "live" ? dict.server.liveTelemetry : dict.server.configuredStatus;
 
   return (
     <Panel className="min-h-44">
@@ -93,7 +95,7 @@ export function LiveServerStatus({ dict }: { dict: Dictionary }) {
           </div>
         </dl>
         <p className="mt-4 flex items-center gap-2 text-xs text-zinc-500">
-          <Activity aria-hidden size={14} /> {status.source.toUpperCase()} TELEMETRY
+          <Activity aria-hidden size={14} /> {sourceLabel}
         </p>
       </PanelBody>
     </Panel>

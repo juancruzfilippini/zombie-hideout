@@ -70,6 +70,8 @@ export const dictionaries = {
       status: "Estado",
       fallback: "No se pudo consultar el servidor en este momento.",
       currentMapUnknown: "Mapa no disponible",
+      liveTelemetry: "TELEMETRÍA EN VIVO",
+      configuredStatus: "ESTADO CONFIGURADO",
     },
     donations: {
       title: "Compra rangos VIP y Admin",
@@ -171,6 +173,8 @@ export const dictionaries = {
       status: "Status",
       fallback: "The server could not be queried right now.",
       currentMapUnknown: "Map unavailable",
+      liveTelemetry: "LIVE TELEMETRY",
+      configuredStatus: "CONFIGURED STATUS",
     },
     donations: {
       title: "Buy VIP and Admin ranks",

@@ -36,7 +36,7 @@ Open `http://localhost:3000`. The root route redirects safely to `/es` or `/en`.
 
 ## Environment
 
-Copy `.env.example` to `.env`. The site renders locally with mock server status and mock payments, so no private credentials are required for development previews.
+Copy `.env.example` to `.env`. The site renders locally with live server-status lookup plus a safe offline fallback and mock payments, so no private credentials are required for development previews.
 
 Important variables:
 
@@ -99,7 +99,7 @@ Never expose provider secrets in client components. Never trust client-side amou
 168.100.162.59:27031
 ```
 
-The browser cannot submit arbitrary hosts, preventing SSRF. Use `SERVER_STATUS_MODE=mock` for development and tests.
+The browser cannot submit arbitrary hosts, preventing SSRF. The default `SERVER_STATUS_MODE=auto` attempts a live query and shows the configured server as offline when it cannot be reached. Use `SERVER_STATUS_MODE=mock` only when you deliberately want the configured offline fallback in development or tests.
 
 ## Assets
 

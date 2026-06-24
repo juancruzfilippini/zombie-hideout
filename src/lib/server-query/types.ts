@@ -12,6 +12,6 @@ export type ServerStatusResponse = {
   version: string | null;
   ping: number | null;
   checkedAt: string;
-  source: "mock" | "live";
+  source: "configured" | "live" | "mock";
   message?: string;
 };
