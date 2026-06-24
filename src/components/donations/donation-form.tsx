@@ -66,7 +66,7 @@ export function DonationForm({
             if (data.checkoutUrl) window.location.href = data.checkoutUrl;
           }}
         >
-          <div className="grid gap-3 md:grid-cols-5">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {donationTiers.map((item) => (
               <button
                 key={item.id}
@@ -75,7 +75,7 @@ export function DonationForm({
                   setTier(item.id);
                   if (item.amount) setAmount(String(item.amount));
                 }}
-                className={`border p-4 text-left transition ${
+                className={`min-h-28 border p-4 text-left transition ${
                   tier === item.id
                     ? "border-[#b9ff46] bg-[#b9ff46]/10"
                     : "border-white/10 bg-white/[0.03]"

@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { RadioTower } from "lucide-react";
 
 import { CookiePreferences } from "@/components/layout/cookie-preferences";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { ReducedMotionProvider } from "@/components/layout/reduced-motion-provider";
+import { serverConfig } from "@/content/site";
 import { isLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { absoluteUrl } from "@/lib/utils";
@@ -68,6 +70,14 @@ export default async function LocaleLayout({
       <Header locale={rawLocale} dict={dict} />
       <main id="main-content">{children}</main>
       <Footer locale={rawLocale} dict={dict} />
+      <a
+        href={serverConfig.steamConnectUrl}
+        className="fixed left-4 right-4 z-30 flex h-11 items-center justify-center gap-2 border border-[#b9ff46]/60 bg-[#b9ff46] text-xs font-black uppercase tracking-[0.14em] text-black shadow-2xl sm:hidden"
+        style={{ bottom: "1rem" }}
+      >
+        <RadioTower aria-hidden size={16} />
+        {dict.common.playNow}
+      </a>
       <CookiePreferences />
     </>
   );

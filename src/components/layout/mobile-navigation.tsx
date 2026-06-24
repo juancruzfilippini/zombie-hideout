@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, RadioTower, X } from "lucide-react";
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
+import { serverConfig } from "@/content/site";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 
@@ -26,7 +27,7 @@ export function MobileNavigation({
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="md:hidden">
+    <div className="xl:hidden">
       <Button
         type="button"
         size="icon"
@@ -62,6 +63,12 @@ export function MobileNavigation({
           <div className="mt-4">
             <LanguageSwitcher locale={locale} />
           </div>
+          <Button asChild className="mt-4 w-full">
+            <a href={serverConfig.steamConnectUrl}>
+              <RadioTower aria-hidden size={16} />
+              {dict.common.playNow}
+            </a>
+          </Button>
         </div>
       ) : null}
     </div>

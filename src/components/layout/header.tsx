@@ -45,7 +45,7 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Main">
+        <nav className="hidden items-center gap-1 xl:flex" aria-label="Main">
           {items.slice(0, 7).map((item) => (
             <Link
               key={item.href}
@@ -58,10 +58,10 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
         </nav>
 
         <div className="flex items-center gap-2">
-          <div className="hidden lg:block">
+          <div className="hidden xl:block">
             <LanguageSwitcher locale={locale} />
           </div>
-          <Button asChild size="sm" className="hidden sm:inline-flex">
+          <Button asChild size="sm" className="hidden xl:inline-flex">
             <a href={serverConfig.steamConnectUrl}>
               <RadioTower aria-hidden size={15} />
               {dict.common.playNow}
@@ -70,14 +70,6 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
           <MobileNavigation items={items} dict={dict} locale={locale} />
         </div>
       </div>
-
-      <a
-        href={serverConfig.steamConnectUrl}
-        className="fixed inset-x-4 bottom-4 z-30 flex h-11 items-center justify-center gap-2 border border-[#b9ff46]/60 bg-[#b9ff46] text-xs font-black uppercase tracking-[0.14em] text-black shadow-2xl md:hidden"
-      >
-        <RadioTower aria-hidden size={16} />
-        {dict.common.playNow}
-      </a>
     </header>
   );
 }

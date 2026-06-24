@@ -21,6 +21,8 @@ test("mobile menu exposes main navigation", async ({ page }) => {
   await page.goto("/en", { waitUntil: "domcontentloaded" });
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.getByRole("button", { name: /open menu/i }).click({ force: true });
-  await expect(page.getByRole("link", { name: "Donations" })).toBeVisible();
+  await expect(
+    page.getByLabel("Mobile").getByRole("link", { name: "Donations" }),
+  ).toBeVisible();
   await page.screenshot({ path: "test-results/mobile-menu.png" });
 });

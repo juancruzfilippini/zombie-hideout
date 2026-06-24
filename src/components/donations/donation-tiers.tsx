@@ -7,7 +7,7 @@ import { formatCurrency } from "@/lib/utils";
 
 export function DonationTiers({ locale }: { locale: Locale }) {
   return (
-    <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
       {donationTiers.map((tier) => (
         <Panel key={tier.id} className="overflow-hidden">
           <div className="relative h-20 border-b border-white/10 bg-black">
@@ -21,7 +21,7 @@ export function DonationTiers({ locale }: { locale: Locale }) {
           </div>
           <PanelBody>
             <p className="text-lg font-black uppercase text-zinc-50">{tier.label[locale]}</p>
-            <p className="mt-3 font-mono text-xl text-[#b9ff46]">
+            <p className="mt-3 font-mono text-lg text-[#b9ff46] xl:text-xl">
               {tier.amount ? formatCurrency(tier.amount, tier.currency, locale) : "A CONFIGURAR"}
             </p>
             <p className="mt-3 text-sm leading-6 text-zinc-400">{tier.description[locale]}</p>

@@ -45,17 +45,19 @@ textarea {
 .section-shell {
   margin-inline: auto;
   max-width: 80rem;
-  padding: 5rem 1rem;
+  padding: 3.5rem 1rem;
 }
 
 @media (min-width: 640px) {
   .section-shell {
+    padding-block: 4rem;
     padding-inline: 1.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .section-shell {
+    padding-block: 5rem;
     padding-inline: 2rem;
   }
 }
@@ -76,7 +78,7 @@ textarea {
 }
 
 .hero-asset {
-  transform: scale(1.02);
+  transform: none;
 }
 
 .glitch {
