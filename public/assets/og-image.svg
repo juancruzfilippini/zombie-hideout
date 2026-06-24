@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Zombie Hideout Open Graph image">
+  <rect width="1200" height="630" fill="#070907"/>
+  <rect x="40" y="40" width="1120" height="550" fill="#111611" stroke="#b9ff46" stroke-opacity=".4" stroke-width="4"/>
+  <path d="M80 500h330l90-90h160l60-60h390" fill="none" stroke="#b9ff46" stroke-opacity=".42" stroke-width="8"/>
+  <text x="80" y="170" fill="#b9ff46" font-family="Arial Black, Arial, sans-serif" font-size="42" letter-spacing="10">HIDEOUT GAMING</text>
+  <text x="80" y="285" fill="#f4f7f2" font-family="Arial Black, Arial, sans-serif" font-size="72">ZOMBIE HIDEOUT</text>
+  <text x="80" y="360" fill="#f08a24" font-family="monospace" font-size="30" letter-spacing="6">COUNTER-STRIKE: SOURCE ZOMBIE MOD</text>
+  <text x="80" y="440" fill="#f4f7f2" fill-opacity=".7" font-family="monospace" font-size="24">168.100.162.59:27031</text>
+</svg>

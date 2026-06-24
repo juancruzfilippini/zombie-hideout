@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Zombie Hideout quarantine operations background">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0a0d0b"/>
+      <stop offset="0.45" stop-color="#151a16"/>
+      <stop offset="1" stop-color="#050705"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="45%" r="50%">
+      <stop offset="0" stop-color="#b9ff46" stop-opacity=".22"/>
+      <stop offset=".55" stop-color="#f08a24" stop-opacity=".09"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0v64" fill="none" stroke="#b9ff46" stroke-opacity=".12" stroke-width="1"/>
+    </pattern>
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 .18"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <rect width="1600" height="900" fill="url(#glow)"/>
+  <rect width="1600" height="900" filter="url(#noise)" opacity=".38"/>
+  <g fill="none" stroke-linecap="square">
+    <path d="M117 712h420l86-86h212l82-82h513" stroke="#b9ff46" stroke-opacity=".35" stroke-width="3"/>
+    <path d="M188 212h268l52 52h171l67-67h399l74 74h192" stroke="#f08a24" stroke-opacity=".34" stroke-width="4"/>
+    <path d="M230 792h218m42 0h72m616-610h166m34 0h72" stroke="#fff" stroke-opacity=".16" stroke-width="2"/>
+  </g>
+  <g transform="translate(1040 220)" opacity=".75">
+    <rect x="0" y="0" width="330" height="210" fill="#050705" stroke="#b9ff46" stroke-opacity=".45" stroke-width="3"/>
+    <path d="M32 48h260M32 88h180M32 128h230M32 168h120" stroke="#b9ff46" stroke-opacity=".58" stroke-width="8"/>
+    <circle cx="278" cy="162" r="18" fill="#ff4747" fill-opacity=".65"/>
+  </g>
+  <g transform="translate(190 290)" opacity=".55">
+    <path d="M0 170 160 0h370l170 170-170 170H160Z" fill="#111611" stroke="#fff" stroke-opacity=".2" stroke-width="3"/>
+    <path d="M190 94h180v152H190z" fill="none" stroke="#b9ff46" stroke-opacity=".4" stroke-width="3"/>
+    <path d="M242 94v152M318 94v152M190 146h180M190 198h180" stroke="#b9ff46" stroke-opacity=".2" stroke-width="2"/>
+  </g>
+  <text x="74" y="102" fill="#b9ff46" fill-opacity=".52" font-family="monospace" font-size="24" letter-spacing="8">QTN-ZH-168.100.162.59</text>
+  <text x="74" y="832" fill="#f08a24" fill-opacity=".46" font-family="monospace" font-size="20" letter-spacing="6">CLASSIFIED OPERATIONS NETWORK</text>
+</svg>

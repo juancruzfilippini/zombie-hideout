@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Zombie Hideout media placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop offset="0" stop-color="#0b0f0c"/>
+      <stop offset="1" stop-color="#1a201b"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0v48" fill="none" stroke="#b9ff46" stroke-opacity=".16"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect width="1200" height="800" fill="url(#grid)"/>
+  <rect x="90" y="85" width="1020" height="630" fill="#070907" stroke="#fff" stroke-opacity=".14" stroke-width="4"/>
+  <path d="M160 610 420 350l130 130 150-190 340 320" fill="none" stroke="#b9ff46" stroke-opacity=".48" stroke-width="14"/>
+  <circle cx="870" cy="230" r="58" fill="#f08a24" fill-opacity=".5"/>
+  <text x="150" y="170" fill="#b9ff46" font-family="monospace" font-size="34" letter-spacing="8">MEDIA FILE</text>
+  <text x="150" y="225" fill="#fff" fill-opacity=".45" font-family="monospace" font-size="20" letter-spacing="4">OWNER ASSET PENDING</text>
+</svg>

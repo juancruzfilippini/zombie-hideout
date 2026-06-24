@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Team avatar placeholder">
+  <rect width="256" height="256" fill="#0b0f0c"/>
+  <path d="M28 218V38h200v180z" fill="#111611" stroke="#b9ff46" stroke-opacity=".42" stroke-width="6"/>
+  <circle cx="128" cy="104" r="42" fill="#b9ff46" fill-opacity=".18" stroke="#b9ff46" stroke-opacity=".45" stroke-width="5"/>
+  <path d="M62 204c12-44 42-66 66-66s54 22 66 66" fill="#b9ff46" fill-opacity=".12" stroke="#f08a24" stroke-opacity=".5" stroke-width="5"/>
+  <path d="M54 54h44M54 72h68M166 54h36" stroke="#fff" stroke-opacity=".22" stroke-width="5"/>
+</svg>

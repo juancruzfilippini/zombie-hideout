@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model Donation {
+  id         String   @id @default(cuid())
+  provider   String
+  externalId String
+  status     String
+  amount     Decimal  @db.Decimal(10, 2)
+  currency   String
+  donorAlias String
+  steamId    String?
+  perkTier   String?
+  locale     String
+  metadata   Json?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  events PaymentEvent[]
+
+  @@unique([provider, externalId])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model PaymentEvent {
+  id              String   @id @default(cuid())
+  provider        String
+  externalEventId String
+  eventType       String
+  donationId      String?
+  processed       Boolean  @default(false)
+  payloadHash     String
+  createdAt       DateTime @default(now())
+
+  donation Donation? @relation(fields: [donationId], references: [id], onDelete: SetNull)
+
+  @@unique([provider, externalEventId])
+  @@index([donationId])
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  steamId   String?
+  subject   String
+  message   String   @db.Text
+  locale    String
+  status    String   @default("new")
+  createdAt DateTime @default(now())
+
+  @@index([status])
+  @@index([createdAt])
+}
