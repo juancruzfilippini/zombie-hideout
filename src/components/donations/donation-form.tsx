@@ -66,7 +66,7 @@ export function DonationForm({
             if (data.checkoutUrl) window.location.href = data.checkoutUrl;
           }}
         >
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(8.5rem,1fr))] gap-3">
             {donationTiers.map((item) => (
               <button
                 key={item.id}
@@ -75,16 +75,16 @@ export function DonationForm({
                   setTier(item.id);
                   if (item.amount) setAmount(String(item.amount));
                 }}
-                className={`min-h-28 border p-4 text-left transition ${
+                className={`min-h-32 min-w-0 border p-4 text-left transition ${
                   tier === item.id
                     ? "border-[#b9ff46] bg-[#b9ff46]/10"
                     : "border-white/10 bg-white/[0.03]"
                 }`}
               >
-                <span className="text-sm font-black uppercase text-zinc-50">
+                <span className="block break-words text-sm font-black uppercase leading-tight text-zinc-50 [overflow-wrap:anywhere]">
                   {item.label[locale]}
                 </span>
-                <span className="mt-2 block font-mono text-[#b9ff46]">
+                <span className="mt-3 block break-words font-mono text-[0.95rem] font-semibold leading-6 text-[#b9ff46] [overflow-wrap:anywhere]">
                   {item.amount ?? dict.common.configuredSoon}
                 </span>
               </button>
