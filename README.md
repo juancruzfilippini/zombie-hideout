@@ -43,6 +43,7 @@ Important variables:
 - `DATABASE_URL`: MySQL connection string. Local Laragon default is `mysql://root:root@localhost:3306/zombie_hideout`.
 - `NEXT_PUBLIC_SITE_URL`: canonical URL used for metadata.
 - `SERVER_STATUS_MODE`: `mock`, `live`, or `auto`.
+- `SERVER_STATUS_ALLOW_MOCK_IN_PRODUCTION`: keep `false` unless you intentionally want Vercel production to show the maintenance/offline fallback.
 - `PAYMENTS_MOCK_ENABLED`: enables the safe local payment simulator.
 - `MERCADOPAGO_ACCESS_TOKEN`, `PAYPAL_CLIENT_ID`, `PAYPAL_CLIENT_SECRET`, `BINANCE_PAY_API_KEY`, `BINANCE_PAY_SECRET_KEY`: enable real payment adapters.
 - `CONTACT_EMAIL_TO` and `EMAIL_PROVIDER_API_KEY`: enable real contact delivery.
@@ -99,7 +100,9 @@ Never expose provider secrets in client components. Never trust client-side amou
 168.100.162.59:27031
 ```
 
-The browser cannot submit arbitrary hosts, preventing SSRF. The default `SERVER_STATUS_MODE=auto` attempts a live query and shows the configured server as offline when it cannot be reached. Use `SERVER_STATUS_MODE=mock` only when you deliberately want the configured offline fallback in development or tests.
+The browser cannot submit arbitrary hosts, preventing SSRF. The default `SERVER_STATUS_MODE=auto` attempts a live query and shows the configured server as offline when it cannot be reached. Use `SERVER_STATUS_MODE=mock` only when you deliberately want the configured offline fallback in development or tests. In Vercel production, accidental `mock` mode is ignored unless `SERVER_STATUS_ALLOW_MOCK_IN_PRODUCTION=true` is also set.
+
+For Vercel, set `SERVER_STATUS_MODE=auto` or `SERVER_STATUS_MODE=live` in Project Settings -> Environment Variables. If the deployed API still cannot reach the game server after leaving mock mode, the host may be blocking A2S/UDP egress and the status check should be moved to a small Node/VPS HTTP bridge near the game server.
 
 ## Assets
 

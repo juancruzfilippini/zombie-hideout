@@ -31,8 +31,21 @@ type GameDigModule = {
   };
 };
 
+function isVercelProduction(): boolean {
+  return process.env.VERCEL === "1" && process.env.VERCEL_ENV === "production";
+}
+
 function getStatusMode(): ServerStatusMode {
   const mode = process.env.SERVER_STATUS_MODE;
+  if (
+    mode === "mock" &&
+    isVercelProduction() &&
+    process.env.SERVER_STATUS_ALLOW_MOCK_IN_PRODUCTION !== "true"
+  ) {
+    console.warn("[server-status] ignoring SERVER_STATUS_MODE=mock in Vercel production");
+    return "auto";
+  }
+
   if (mode === "auto" || mode === "live" || mode === "mock") return mode;
   return "auto";
 }
